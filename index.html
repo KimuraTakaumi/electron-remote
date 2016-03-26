@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <script type="text/javascript">
+        var main = require("remote").require("./main");
+
+        // remoteでMainProcessのメソッドを呼び出す。
+        function exampleRemote() {
+            console.log("exampleRemote");
+            main.exampleRemote();
+        }
+
+        // 引数を設定し、MainProcess側に値を渡す
+        function exampleRemoteArgsText() {
+            console.log("exampleRemoteArgsText");
+            main.exampleRemoteArgsText('Render Process Message');
+        }
+
+        // functionを引数に設定し、MainProcess側で実行する
+        function exampleRemoteArgsFunc() {
+            console.log("synchronousMessage");
+            main.exampleRemoteArgsFunc(function () {
+                console.log('Render Process Function Message')
+            });
+        }
+    </script>
+</head>
+<body>
+<h1>Hello World!</h1>
+<button onclick="exampleRemote()">exampleRemote</button>
+<button onclick="exampleRemoteArgsText()">exampleRemoteArgsText</button>
+<button onclick="exampleRemoteArgsFunc()">exampleRemoteArgsFunc</button>
+</body>
+</html>
