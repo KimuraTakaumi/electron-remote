@@ -20,7 +20,7 @@
 
         // functionを引数に設定し、MainProcess側で実行する
         function exampleRemoteArgsFunc() {
-            console.log("synchronousMessage");
+            console.log("exampleRemoteArgsFunc");
             main.exampleRemoteArgsFunc(function () {
                 console.log('Render Process Function Message')
             });
